@@ -1,0 +1,49 @@
+<main class="trancatela">
+    <section class="container">
+        <div class="imagem-produto">
+            <img src="{{produto.produtoImagem}}" >
+        </div>
+        <div class="linha"></div>
+        <div class="descricao-produto">
+            <p class="nome-produto">
+                {{produto.name}}
+            </p>
+            <p class="codigo-produto">
+                COD:  912-V809-2272
+            </p>
+
+            <p class="nome-empreendedor">
+                Vendido por: <span ><a routerLink="/loja-empreendedor/{{produto.loja?.idLoja}}" class="img-wrap" data-abc="true"  > {{produto.loja?.nomeLoja}}</a></span>
+            </p>
+
+            <p class="descricao-produto">
+               {{produto.produtoDescricao}}
+            </p>
+            <p class="boleto"><i class="bi bi-upc"></i> De: <span class="preco-original">{{produto.produtoAntigoValor | currency: "BRL"}}</span> por:
+                <span class="preco-promo">{{produto.produtoValor | currency: "BRL"}}</span></p>
+            <!-- <p class="estoque-produto">
+              Estoque Disponível: {{produto.produtoEstoque}}
+            </p> -->
+            <!-- <p class="cartao"><i class="bi bi-credit-card"></i> R$ 1.410,50 <span class="preco-dividido">12x sem juros</span></p> -->
+            <button (click)="addToCart(produto)" type="button" class="button">ADICIONAR AO CARRINHO</button>
+        </div>
+    </section>
+
+    <ngb-carousel class="container-carousel" *ngIf="images">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images[0]" alt="Random first slide">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images[1]" alt="Random second slide">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="images[2]" alt="Random third slide">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+</main>

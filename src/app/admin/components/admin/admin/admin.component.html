@@ -1,0 +1,418 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-6" *ngIf="lojas">
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{ lojas!.length }}</h3>
+
+            <p>Lojas</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-bag"></i>
+          </div>
+          <a class="small-box-footer"> Total de Lojas <i class=""></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6" *ngIf="produtos">
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{ produtos!.length }}<sup style="font-size: 20px"></sup></h3>
+
+            <p>Produtos</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+          <a [class.active]="aba == 'produtos'" class="small-box-footer"
+            >Total de Produtos <i class=""></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6" *ngIf="empreendedor">
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>{{ empreendedor!.length }}</h3>
+
+            <p>Empreendedores</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a [class.active]="aba == 'usuarios'" class="small-box-footer"
+            >Total de Empreendedores <i class=""></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6" *ngIf="consumidores">
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>{{ consumidores.length }}</h3>
+
+            <p>Consumidores</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a href="#" class="small-box-footer"
+            >Total de Consumidores <i class=""></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- aqui -->
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Produtos Mês</h3>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <app-grafico> </app-grafico>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Produto Semanal</h3>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <app-graficos></app-graficos>
+
+                <div class="chart"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Consumidor Mensal</h3>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <app-graficoConsumidor></app-graficoConsumidor>
+
+                <div class="chart"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Empreendedor Mensal</h3>
+                <div class="card-tools"></div>
+              </div>
+              <div class="card-body">
+                <app-graficoEmpreendedor></app-graficoEmpreendedor>
+
+                <div class="chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+       
+    
+    </section>
+
+    <!-- fim -->
+
+    <div class="row">
+      <section>
+        <div class="card">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><b>Lojas</b></h3>
+                  <div class="card-tools">
+                    <div
+                      class="input-group input-group-sm"
+                      style="width: 150px"
+                    >
+                      <div class="input-group-append"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Loja</th>
+                        <th>Data Criação</th>
+                        <th>Descrição</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr></tr>
+                      <tr *ngFor="let loja of lojas">
+                        <td>{{ loja.idLoja }}</td>
+                        <td>{{ loja.nomeLoja }}</td>
+                        <td>{{ loja.dataCriacao }}</td>
+                        <td>
+                          {{ loja.descricaoLoja }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><b>Empreendedores</b></h3>
+                  <div class="card-tools">
+                    <div
+                      class="input-group input-group-sm"
+                      style="width: 150px"
+                    >
+                      <div class="input-group-append"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Perfil</th>
+                        <th>Email</th>
+                        <th>Deletar</th>
+                        <th>Editar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr></tr>
+                      <tr *ngFor="let pessoa of empreendedor">
+                        <td>{{ pessoa.id }}</td>
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.perfil }}</td>
+                        <td>{{ pessoa.email }}</td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-trash"
+                              style="color: red"
+                              (click)="deletarEmpreendedorModal(pessoa)"
+                            ></span
+                          ></a>
+                        </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-pencil"
+                              style="color: blue"
+                              (click)="editarEmpreendedor(pessoa.id!)"
+                            ></span
+                          ></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><b>Consumidores</b></h3>
+                  <div class="card-tools">
+                    <div
+                      class="input-group input-group-sm"
+                      style="width: 150px"
+                    >
+                      <div class="input-group-append"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Perfil</th>
+                        <th>Email</th>
+                        <th>Deletar</th>
+                        <th>Editar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr></tr>
+                      <tr *ngFor="let pessoa of consumidores">
+                        <td>{{ pessoa.id }}</td>
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.perfil }}</td>
+                        <td>{{ pessoa.email }}</td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-trash"
+                              style="color: red"
+                              (click)="deletarConsumidorModal(pessoa)"
+                            ></span
+                          ></a>
+                        </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-pencil"
+                              style="color: blue"
+                              (click)="editarConsumidor(pessoa.id!)"
+                            ></span
+                          ></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="row">
+      <section>
+        <div class="card">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><b>Produtos</b></h3>
+                  <div class="card-tools">
+                    <div
+                      class="input-group input-group-sm"
+                      style="width: 150px"
+                    >
+                      <div class="input-group-append"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Loja</th>
+                        <th>Deletar</th>
+                        <th>Editar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr></tr>
+                      <tr *ngFor="let produto of produtos">
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.name }}</td>
+                        <td>{{ produto.loja?.nomeLoja }}</td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-trash"
+                              style="color: red"
+                              (click)="deletarProdutoModal(produto)"
+                            ></span
+                          ></a>
+                        </td>
+                        <td>
+                          <a
+                            ><span
+                              class="bi bi-pencil"
+                              style="color: blue"
+                              (click)="editarProduto(produto.id!)"
+                            ></span
+                          ></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Deseja deletar esse Produto ?</p>
+    <button type="button" class="btn btn-default" (click)="confirmaDelete()">
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()">
+      Não
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #deleteModalEmpreendedor>
+  <div class="modal-body text-center">
+    <p>Deseja deletar esse Empreendedor ?</p>
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="confirmaDeleteEmpreendedor()"
+    >
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()">
+      Não
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #deleteModalConsumidor>
+  <div class="modal-body text-center">
+    <p>Deseja deletar esse Empreendedor ?</p>
+    <button
+      type="button"
+      class="btn btn-default"
+      (click)="confirmaDeleteConsumidor()"
+    >
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="naoDeletar()">
+      Não
+    </button>
+  </div>
+</ng-template>

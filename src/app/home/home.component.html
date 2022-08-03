@@ -1,0 +1,176 @@
+<main class="trancatela">
+  <ngb-carousel class="carousel-container" *ngIf="images">
+    <ng-template ngbSlide>
+      <a class="link-banner" href="./produtos-list">
+        <div class="picsum-img-wrapper">
+          <div class="carousel-info">
+            <h1>HP Pavillion</h1>
+            <p class="p1-carousel">
+              Bonito e leve! O laptop HP Pavillion acompanha os estilos de
+              trabalho móveis com um design fino e leve. A bela tela com seu
+              design de borda estreita e grande relação tela-corpo oferece amplo
+              espaço para trabalho ou transmissão de conteúdo
+            </p>
+          </div>
+          <div class="div-bola-amarela">
+            <img class="img-1" src="../../assets/img/not1.png" alt="" />
+          </div>
+        </div>
+      </a>
+    </ng-template>
+    <ng-template ngbSlide>
+      <a class="link-banner" href="./produtos-list">
+        <div class="picsum-img-wrapper">
+          <div class="carousel-info">
+            <h1>HP Pavillion</h1>
+            <p class="p1-carousel">
+              Bem conectado Este laptop está pronto para se conectar a todos os
+              seus periféricos e foi projetado para atender às necessidades de
+              negócios com uma porta de dados USB Type-C®, uma porta RJ-45 e uma
+              porta HDMI.
+            </p>
+          </div>
+          <div class="div-bola-amarela-2">
+            <img class="img-2" src="../../assets/img/not2.png" alt="" />
+          </div>
+        </div>
+      </a>
+    </ng-template>
+    <ng-template ngbSlide>
+      <a class="link-banner" href="./produtos-list">
+        <div class="picsum-img-wrapper">
+          <div class="carousel-info">
+            <h1>HP Pavillion</h1>
+            <p class="p1-carousel">
+              Bonito e leve! O laptop HP Pavillion acompanha os estilos de
+              trabalho móveis com um design fino e leve. A bela tela com seu
+              design de borda estreita e grande relação tela-corpo oferece amplo
+              espaço para trabalho ou transmissão de conteúdo
+            </p>
+          </div>
+          <div class="div-bola-amarela-3">
+            <img class="img-3" src="../../assets/img/not3.png" alt="" />
+          </div>
+        </div>
+      </a>
+    </ng-template>
+  </ngb-carousel>
+  <section class="container-cards1">
+    <div *ngFor="let produto of produtos">
+      <div class="card-container">
+        <div class="card">
+          <div class="promo">
+            <p class="porcent-promo"><span>{{produto.produtoDesconto}}%</span> OFF</p>
+            <p class="time-promo">
+              termina em:
+              <span>{{produto.dataLimitePromocao | date }}</span>
+            </p>
+          </div>
+          <div class="details">
+            <a
+              routerLink="/produto-detail/{{ produto.id }}"
+              class="img-wrap"
+              data-abc="true"
+            >
+              <img
+                src="{{ produto.produtoImagem }}"
+                alt="Imagem de um computador"
+              />
+            </a>
+            <a
+              routerLink="/loja-empreendedor/{{ produto.loja?.idLoja }}"
+              class="img-wrap"
+              data-abc="true">
+              <p class="nome-loja">
+                <b>{{ produto.loja?.nomeLoja }}</b>
+              </p>
+            </a>
+            <p class="nome-produto">{{ produto.name }}</p>
+            <p class="preco-corte">
+              De: {{  produto.produtoAntigoValor | currency: "BRL" }}
+            </p>
+            <p class="preco-promo">
+              {{ produto.produtoValor | currency: "BRL" }}
+            </p>
+
+            <button
+              (click)="addToCart(produto)"
+              class="button-card"
+              type="button"
+            >
+              <a>ADICIONAR AO CARRINHO</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a href="/produto-list">
+    <div class="promo-card"></div>
+  </a>
+  <section class="informacoes-container">
+    <div class="infos-div">
+      <div class="infos-1">
+        <img
+          class="info-1-img"
+          src="../../assets/img/icone-cartao.png"
+          alt="Imagem de um cartão"
+        />
+        <h5 class="info-nome">Escolha como pagar</h5>
+        <p class="info-loja">
+          Com o E-comerce, você paga com cartão, boleto ou Pix. Você também pode
+          pagar em até 12x no boleto com o Mercado Crédito.
+        </p>
+        <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
+      </div>
+      <div class="linha"></div>
+    </div>
+    <div class="infos-div">
+      <div class="infos-2">
+        <img
+          class="info-2-img"
+          src="../../assets/img/icone-caixa.png"
+          alt="Imagem de uma caixa de entrega"
+        />
+        <h5 class="info-nome">Frete grátis a partir de R$ 59</h5>
+        <p class="info-loja">
+          Só por estar cadastrado no E-comerce, você tem frete grátis em
+          milhares de produtos. É um benefício do especial para você.
+        </p>
+        <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
+      </div>
+      <div class="linha"></div>
+    </div>
+    <div class="infos-div">
+      <div class="infos-3">
+        <img
+          class="info-3-img"
+          src="../../assets/img/icone-escudo.png"
+          alt="Imagem de um cartão"
+        />
+        <h5 class="info-nome">Segurança, do início ao fim</h5>
+        <p class="info-loja">
+          Não gostou do que comprou? Devolva! Aqui no E-comerce não há nada que
+          você não possa fazer, porque você está sempre protegido.
+        </p>
+        <p class="saiba-mais"><a href="#">Saiba mais...</a></p>
+      </div>
+      <div class="linha"></div>
+    </div>
+    <div class="infos-div">
+      <div class="infos-4">
+        <img
+          class="info-4-img"
+          src="../../assets/../assets/img/icone-atendente.png"
+          alt="Imagem de um cartão"
+        />
+        <h5 class="info-nome">Suporte ao Cliente</h5>
+        <p class="info-loja">
+          Atendimento 24h todos os dias para facilitar suas compras, com nossa
+          equipe de Consultores altamente qualificados.
+        </p>
+        <p class="saiba-mais-4"><a href="#">Saiba mais...</a></p>
+      </div>
+    </div>
+  </section>
+</main>
